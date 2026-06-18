@@ -4,6 +4,7 @@ import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import { siteConfig } from "@/data/site";
 import { footerNav, legalNav } from "@/data/navigation";
+import { isPlaceholder } from "@/lib/utils";
 
 export function Footer() {
   const year = 2026; // Année à mettre à jour si besoin (date dynamique évitée pour le rendu statique).
@@ -99,13 +100,12 @@ export function Footer() {
         <div className="mt-14 border-t border-white/15 pt-6">
           <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-white/60 sm:justify-start">
             <li>SIRET : {siteConfig.legal.siret}</li>
-            <li>Déclaration d&apos;activité : {siteConfig.legal.nda}</li>
-            <li>
-              Qualiopi :{" "}
-              {siteConfig.legal.qualiopiConfirmed
-                ? siteConfig.legal.qualiopi
-                : "à compléter si applicable"}
-            </li>
+            {!isPlaceholder(siteConfig.legal.nda) && (
+              <li>Déclaration d&apos;activité : {siteConfig.legal.nda}</li>
+            )}
+            {siteConfig.legal.qualiopiConfirmed && (
+              <li>Qualiopi : {siteConfig.legal.qualiopi}</li>
+            )}
             <li>
               Certification VTest Business English –{" "}
               {siteConfig.certifications.vtest.rsCode}

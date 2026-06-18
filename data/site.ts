@@ -27,15 +27,23 @@ export const siteConfig = {
     hours: "Du lundi au vendredi, 9h - 18h", // à personnaliser
   },
 
-  /** Informations légales de l'entreprise. */
+  /** Informations légales de l'entreprise (source : certificat Qualiopi DEKRA). */
   legal: {
     siret: "945 301 489 00015",
-    // Numéro de déclaration d'activité de formation — à compléter par Attitude RH.
-    nda: "À compléter par Attitude RH",
-    // Certification Qualiopi — à compléter UNIQUEMENT si elle est confirmée.
-    // Tant que `qualiopiConfirmed` est false, le logo Qualiopi n'est pas affiché.
-    qualiopiConfirmed: false,
-    qualiopi: "À compléter si applicable",
+    siren: "945 301 489",
+    // Numéro de déclaration d'activité de formation.
+    nda: "11941353894",
+    // Certification Qualiopi confirmée (certificat DEKRA Certification).
+    qualiopiConfirmed: true,
+    qualiopi: "Certifié Qualiopi au titre des actions de formation",
+    qualiopiDetails: {
+      certifier: "DEKRA Certification",
+      certificateNumber: "25-12-1260",
+      validFrom: "08/12/2025",
+      validUntil: "07/12/2028",
+      // Certificat consultable (fichier dans public/pdf).
+      certificateUrl: "/pdf/certificat-qualiopi-attitude-rh.pdf",
+    },
   },
 
   /** Certifications préparées et liens officiels. */

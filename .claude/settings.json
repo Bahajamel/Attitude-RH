@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la \"/c/Users/MSI/Downloads/\" | grep -i qualiopi; echo \"---try copy---\"; cp \"/c/Users/MSI/Downloads/Certificat QUALIOPI - ATTITUDE RH - 2025-12-08.pdf\" \"/c/Users/MSI/Desktop/projets/Attitude RH/public/documents/certificat-qualiopi-attitude-rh.pdf\" && echo \"COPIED OK\")"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\MSI\\Downloads"
+    ]
+  }
+}

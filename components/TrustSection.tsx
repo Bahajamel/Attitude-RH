@@ -1,3 +1,5 @@
+import { ExternalLink } from "lucide-react";
+
 import { SectionTitle } from "@/components/SectionTitle";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Card, CardContent } from "@/components/ui/card";
@@ -41,6 +43,18 @@ export function TrustSection({ className }: TrustSectionProps) {
                     <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
                       {item.value}
                     </p>
+                    {item.href && (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-coral underline-offset-4 hover:underline"
+                        aria-label={`${item.linkLabel ?? "Consulter"} (PDF, nouvel onglet)`}
+                      >
+                        {item.linkLabel ?? "Consulter"}
+                        <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                      </a>
+                    )}
                   </div>
                 </CardContent>
               </Card>

@@ -3,7 +3,7 @@ import { Quote } from "lucide-react";
 import { SectionTitle } from "@/components/SectionTitle";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Card, CardContent } from "@/components/ui/card";
-import { testimonials, testimonialsNote } from "@/data/content";
+import { visibleTestimonials } from "@/data/content";
 
 type TestimonialsSectionProps = {
   className?: string;
@@ -11,9 +11,12 @@ type TestimonialsSectionProps = {
 
 /**
  * Section « Témoignages ».
- * Affiche des témoignages (placeholders tant qu'Attitude RH ne les a pas validés).
+ * N'est rendue que lorsqu'au moins un vrai témoignage est renseigné dans
+ * data/content.ts (aucun placeholder « à compléter » n'est affiché).
  */
 export function TestimonialsSection({ className }: TestimonialsSectionProps) {
+  if (visibleTestimonials.length === 0) return null;
+
   return (
     <section className={className ?? "section-padding bg-secondary/40"}>
       <div className="container">
@@ -24,7 +27,7 @@ export function TestimonialsSection({ className }: TestimonialsSectionProps) {
         />
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {testimonials.map((item, index) => (
+          {visibleTestimonials.map((item, index) => (
             <AnimatedSection key={index} delay={index * 0.08}>
               <Card className="flex h-full flex-col border-border/70">
                 <CardContent className="flex flex-1 flex-col p-6">
@@ -56,10 +59,6 @@ export function TestimonialsSection({ className }: TestimonialsSectionProps) {
             </AnimatedSection>
           ))}
         </div>
-
-        <p className="mt-6 text-center text-sm italic text-muted-foreground">
-          {testimonialsNote}
-        </p>
       </div>
     </section>
   );

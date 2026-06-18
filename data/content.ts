@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 
 import { siteConfig } from "./site";
+import { isPlaceholder } from "@/lib/utils";
 
 /* ------------------------------------------------------------------ */
 /*  PREUVES DE CONFIANCE (page d'accueil)                              */
@@ -31,9 +32,18 @@ export type TrustItem = {
   icon: LucideIcon;
   title: string;
   value: string;
+  /** Lien optionnel (ex. consulter le certificat Qualiopi). */
+  href?: string;
+  linkLabel?: string;
 };
 
-export const trustItems: TrustItem[] = [
+/**
+ * Liste complète des repères de confiance.
+ * Les éléments dont la valeur est encore « à compléter » (ex. NDA, Qualiopi
+ * non confirmé) sont automatiquement masqués : ils apparaîtront dès que la
+ * vraie donnée sera renseignée dans data/site.ts.
+ */
+const allTrustItems: TrustItem[] = [
   {
     icon: FileCheck2,
     title: "Organisme de formation déclaré",
@@ -48,8 +58,12 @@ export const trustItems: TrustItem[] = [
     icon: ShieldCheck,
     title: "Certification Qualiopi",
     value: siteConfig.legal.qualiopiConfirmed
-      ? siteConfig.legal.qualiopi
+      ? `${siteConfig.legal.qualiopi} (${siteConfig.legal.qualiopiDetails.certifier}, valable jusqu'au ${siteConfig.legal.qualiopiDetails.validUntil}).`
       : "À compléter si applicable",
+    href: siteConfig.legal.qualiopiConfirmed
+      ? siteConfig.legal.qualiopiDetails.certificateUrl
+      : undefined,
+    linkLabel: "Consulter le certificat",
   },
   {
     icon: BadgeCheck,
@@ -67,6 +81,11 @@ export const trustItems: TrustItem[] = [
     value: "Un parcours adapté à votre niveau et à vos objectifs.",
   },
 ];
+
+/** Repères réellement renseignés (les placeholders « à compléter » sont exclus). */
+export const trustItems: TrustItem[] = allTrustItems.filter(
+  (item) => !isPlaceholder(item.value)
+);
 
 /* ------------------------------------------------------------------ */
 /*  INDICATEURS DE RÉSULTATS                                           */
@@ -101,19 +120,22 @@ export type Testimonial = {
   photo?: string;
 };
 
+/**
+ * Témoignages — REMPLACEZ les entrées ci-dessous par de vrais témoignages
+ * validés par Attitude RH (1 à 3). Tant qu'une entrée contient « à compléter »,
+ * elle n'est PAS affichée sur le site (la section disparaît si aucun vrai
+ * témoignage n'est renseigné).
+ *
+ * Exemple d'entrée à fournir :
+ *   {
+ *     name: "Sophie M.",
+ *     role: "Responsable commerciale",
+ *     company: "Entreprise X",
+ *     quote: "Une formation concrète qui m'a permis de gagner en aisance…",
+ *     photo: "/images/temoignage-sophie.jpg", // optionnel
+ *   }
+ */
 export const testimonials: Testimonial[] = [
-  {
-    name: "Prénom à compléter",
-    role: "Fonction à compléter",
-    company: "Entreprise à compléter",
-    quote: "Témoignage à compléter.",
-  },
-  {
-    name: "Prénom à compléter",
-    role: "Fonction à compléter",
-    company: "Entreprise à compléter",
-    quote: "Témoignage à compléter.",
-  },
   {
     name: "Prénom à compléter",
     role: "Fonction à compléter",
@@ -122,8 +144,10 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
-export const testimonialsNote =
-  "Les témoignages seront ajoutés après validation par Attitude RH.";
+/** Témoignages réellement renseignés (les placeholders sont exclus). */
+export const visibleTestimonials: Testimonial[] = testimonials.filter(
+  (t) => !isPlaceholder(t.quote) && !isPlaceholder(t.name)
+);
 
 /* ------------------------------------------------------------------ */
 /*  PARTENAIRES                                                        */

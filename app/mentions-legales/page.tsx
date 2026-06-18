@@ -43,9 +43,33 @@ export default function MentionsLegalesPage() {
                 Numéro SIRET : {siteConfig.legal.siret}.
                 <br />
                 Numéro de déclaration d&apos;activité de formation :{" "}
-                {siteConfig.legal.nda}.
+                {siteConfig.legal.nda} (cet enregistrement ne vaut pas agrément
+                de l&apos;État).
                 <br />
                 Directeur de la publication : à personnaliser.
+              </p>
+            </article>
+
+            <article className="space-y-3">
+              <h2 className="text-2xl font-bold text-foreground">
+                Certification Qualiopi
+              </h2>
+              <p className="leading-relaxed text-muted-foreground">
+                {siteConfig.name} est certifié Qualiopi au titre de la catégorie
+                d&apos;action « actions de formation ». Certification délivrée
+                par {siteConfig.legal.qualiopiDetails.certifier} (certificat n°{" "}
+                {siteConfig.legal.qualiopiDetails.certificateNumber}), valable du{" "}
+                {siteConfig.legal.qualiopiDetails.validFrom} au{" "}
+                {siteConfig.legal.qualiopiDetails.validUntil}.{" "}
+                <a
+                  href={siteConfig.legal.qualiopiDetails.certificateUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-primary underline-offset-4 hover:underline"
+                >
+                  Consulter le certificat (PDF)
+                </a>
+                .
               </p>
             </article>
 
