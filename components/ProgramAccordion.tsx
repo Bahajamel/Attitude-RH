@@ -27,7 +27,7 @@ export function ProgramAccordion({ items }: ProgramAccordionProps) {
         <AccordionItem key={item.title} value={`program-${index}`}>
           <AccordionTrigger>
             <span className="flex items-center gap-3">
-              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-coral-soft text-coral">
+              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/[0.06] text-primary">
                 <item.icon className="h-5 w-5" aria-hidden="true" />
               </span>
               {item.title}

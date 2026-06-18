@@ -115,28 +115,29 @@ export function HeroSection() {
 
         {/* Colonne visuelle */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
+          initial={{ opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-          className="relative mx-auto hidden w-full max-w-md lg:block"
+          className="relative mx-auto w-full max-w-md lg:max-w-none"
         >
-          <div className="relative rounded-3xl border border-border/70 bg-white/70 p-10 shadow-xl shadow-primary/5 backdrop-blur">
+          <div className="relative overflow-hidden rounded-3xl border border-border/70 shadow-xl shadow-primary/10">
             <Image
-              src="/logo/attitude_rh_vertical_couleur.png"
-              alt="Attitude RH — centre de formation"
-              width={320}
-              height={320}
+              src="/images/BEP-68c-English-Meetings-Interruptions-featured.jpg"
+              alt="Professionnels échangeant en anglais lors d'une réunion de travail"
+              width={850}
+              height={700}
               priority
-              className="mx-auto h-auto w-56 object-contain"
+              sizes="(max-width: 1024px) 100vw, 45vw"
+              className="aspect-[5/4] h-full w-full object-cover"
             />
           </div>
 
-          {/* Badges flottants */}
+          {/* Badges flottants (masqués sur très petits écrans) */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="absolute -left-6 top-10 flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-2.5 shadow-lg"
+            className="absolute -left-4 top-8 hidden items-center gap-2 rounded-xl border border-border bg-background px-4 py-2.5 shadow-lg sm:flex"
           >
             <BadgeCheck className="h-5 w-5 text-coral" />
             <span className="text-sm font-semibold text-foreground">
@@ -148,7 +149,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.65 }}
-            className="absolute -right-4 bottom-10 flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-2.5 shadow-lg"
+            className="absolute -right-4 bottom-8 hidden items-center gap-2 rounded-xl border border-border bg-background px-4 py-2.5 shadow-lg sm:flex"
           >
             <span className="flex h-6 w-6 items-center justify-center rounded-full bg-royal/10 text-xs font-bold text-royal">
               A1

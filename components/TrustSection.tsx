@@ -29,10 +29,10 @@ export function TrustSection({ className }: TrustSectionProps) {
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {trustItems.map((item, index) => (
             <AnimatedSection key={item.title} delay={index * 0.06}>
-              <Card className="h-full border-border/70 transition-all duration-300 hover:border-coral/30 hover:shadow-md">
+              <Card className="h-full border-border/70 transition-all duration-300 hover:border-primary/20 hover:shadow-md hover:shadow-primary/5">
                 <CardContent className="flex gap-4 p-6">
-                  <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-coral-soft text-coral">
-                    <item.icon className="h-5 w-5" aria-hidden="true" />
+                  <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/[0.06] text-primary">
+                    <item.icon className="h-5 w-5" strokeWidth={2} aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">

@@ -99,7 +99,7 @@ export default function HomePage() {
                     key={skill.title}
                     className="flex items-center gap-3 rounded-xl border border-border/70 bg-background p-4"
                   >
-                    <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-coral-soft text-coral">
+                    <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/[0.06] text-primary">
                       <skill.icon className="h-4 w-4" aria-hidden="true" />
                     </span>
                     <span className="text-sm font-medium text-foreground">

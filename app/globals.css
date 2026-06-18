@@ -73,6 +73,21 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
+    /* Corps de texte confortable : 16-18px, interlignage 1.6 */
+    font-size: 1rem;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+  }
+  /* Titres : interlignage serré et équilibrage des fins de ligne */
+  h1,
+  h2,
+  h3 {
+    @apply tracking-tight;
+    text-wrap: balance;
+  }
+  /* Équilibre les paragraphes courts (titres de section, sous-titres) */
+  p {
+    text-wrap: pretty;
   }
   /* Respecte les préférences de réduction de mouvement */
   @media (prefers-reduced-motion: reduce) {
@@ -88,9 +103,12 @@
 }
 
 @layer utilities {
-  /* Conteneur de section vertical homogène */
+  /*
+   * Rythme vertical homogène basé sur une grille de 8 px :
+   * mobile ≈ 56px · tablette ≈ 80px · desktop ≈ 112px
+   */
   .section-padding {
-    @apply py-16 md:py-24;
+    @apply py-14 md:py-20 lg:py-28;
   }
 
   /* Met le mot en surbrillance avec le corail de la marque */

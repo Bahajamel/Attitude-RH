@@ -23,13 +23,13 @@ export function TrainingInfoCard({
   return (
     <Card
       className={cn(
-        "h-full border-border/70 transition-all duration-300 hover:border-coral/30 hover:shadow-md",
+        "h-full border-border/70 transition-all duration-300 hover:border-primary/20 hover:shadow-md hover:shadow-primary/5",
         className
       )}
     >
       <CardContent className="flex gap-4 p-6">
-        <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-coral-soft text-coral">
-          <Icon className="h-5 w-5" aria-hidden="true" />
+        <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/[0.06] text-primary">
+          <Icon className="h-5 w-5" strokeWidth={2} aria-hidden="true" />
         </div>
         <div>
           <h3 className="font-semibold text-foreground">{label}</h3>

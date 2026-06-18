@@ -52,7 +52,7 @@ export default function ContactPage() {
                     <li key={item.label}>
                       <Card className="border-border/70">
                         <CardContent className="flex items-center gap-4 p-5">
-                          <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-coral-soft text-coral">
+                          <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/[0.06] text-primary">
                             <Icon className="h-5 w-5" aria-hidden="true" />
                           </span>
                           <div>

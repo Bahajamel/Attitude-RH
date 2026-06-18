@@ -46,7 +46,7 @@ export function Header() {
     >
       <div
         className={cn(
-          "mx-auto flex w-full max-w-[1400px] items-center justify-between gap-4 px-6 transition-all duration-300",
+          "container flex items-center justify-between gap-4 transition-all duration-300",
           scrolled ? "h-16" : "h-20"
         )}
       >
@@ -59,7 +59,7 @@ export function Header() {
 
         {/* Navigation bureau */}
         <nav
-          className="hidden items-center gap-0.5 xl:flex"
+          className="hidden items-center gap-0.5 lg:flex"
           aria-label="Navigation principale"
         >
           {mainNav.map((item) => (
@@ -82,7 +82,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden xl:block">
+        <div className="hidden lg:block">
           <Button asChild>
             <Link href={primaryCta.href}>
               {primaryCta.label}
@@ -94,7 +94,7 @@ export function Header() {
         {/* Bouton menu mobile */}
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-md text-foreground transition-colors hover:bg-secondary xl:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-md text-foreground transition-colors hover:bg-secondary lg:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-controls="mobile-menu"
@@ -117,10 +117,10 @@ export function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="overflow-hidden border-t bg-background xl:hidden"
+            className="overflow-hidden border-t bg-background lg:hidden"
           >
             <nav
-              className="mx-auto flex w-full max-w-[1400px] flex-col gap-1 px-6 py-4"
+              className="container flex flex-col gap-1 py-4"
               aria-label="Navigation mobile"
             >
               {mainNav.map((item, index) => (

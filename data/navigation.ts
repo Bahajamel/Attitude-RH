@@ -8,12 +8,12 @@ export type NavItem = {
   href: string;
 };
 
-/** Navigation affichée dans le header (desktop + mobile). */
+/** Navigation affichée dans le header (desktop + mobile) — libellés courts. */
 export const mainNav: NavItem[] = [
   { label: "Accueil", href: "/" },
   { label: "À propos", href: "/a-propos" },
-  { label: "Formation d'anglais", href: "/formation-anglais" },
-  { label: "Certification VTest", href: "/certification-vtest" },
+  { label: "Formation", href: "/formation-anglais" },
+  { label: "Certification", href: "/certification-vtest" },
   { label: "Financement", href: "/financement" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
