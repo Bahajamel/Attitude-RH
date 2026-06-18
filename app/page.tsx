@@ -7,6 +7,10 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { FeatureCard } from "@/components/FeatureCard";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { CTASection } from "@/components/CTASection";
+import { TrustSection } from "@/components/TrustSection";
+import { ResultsSection } from "@/components/ResultsSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { PartnersSection } from "@/components/PartnersSection";
 import { Button } from "@/components/ui/button";
 import { whyChooseUs, trainingHighlights, vtestSkills } from "@/data/training";
 
@@ -40,8 +44,11 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Preuves de confiance */}
+      <TrustSection />
+
       {/* Une formation pensée pour progresser */}
-      <section className="section-padding bg-secondary/40">
+      <section className="section-padding">
         <div className="container">
           <SectionTitle
             eyebrow="Notre approche"
@@ -57,6 +64,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Indicateurs de résultats */}
+      <ResultsSection className="section-padding bg-secondary/40" />
 
       {/* Certification VTest */}
       <section className="section-padding">
@@ -102,6 +112,12 @@ export default function HomePage() {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Témoignages */}
+      <TestimonialsSection />
+
+      {/* Partenaires */}
+      <PartnersSection />
 
       <CTASection
         title="Vous souhaitez améliorer votre anglais ?"

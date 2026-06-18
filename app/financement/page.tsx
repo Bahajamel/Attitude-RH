@@ -5,15 +5,16 @@ import { Info } from "lucide-react";
 import { PageHeader } from "@/components/PageHeader";
 import { SectionTitle } from "@/components/SectionTitle";
 import { FeatureCard } from "@/components/FeatureCard";
+import { FaqAccordion } from "@/components/FaqAccordion";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { CTASection } from "@/components/CTASection";
 import { Button } from "@/components/ui/button";
-import { fundingOptions, fundingNote } from "@/data/training";
+import { fundingOptions, fundingNote, fundingFaq } from "@/data/training";
 
 export const metadata: Metadata = {
-  title: "Financement de la formation",
+  title: "Financement de la formation d'anglais",
   description:
-    "Financement personnel, prise en charge par l'employeur, OPCO ou CPF selon votre situation : Attitude RH vous accompagne pour trouver la solution adaptée.",
+    "Financement personnel, employeur, OPCO, France Travail ou CPF si applicable : Attitude RH vous accompagne pour trouver la solution de financement adaptée et établir un devis.",
   alternates: { canonical: "/financement" },
 };
 
@@ -34,9 +35,9 @@ export default function FinancementPage() {
             title="Les possibilités de financement"
             subtitle="Selon votre statut et votre projet, différentes prises en charge sont envisageables."
           />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {fundingOptions.map((option, index) => (
-              <AnimatedSection key={option.title} delay={index * 0.07}>
+              <AnimatedSection key={option.title} delay={index * 0.06}>
                 <FeatureCard {...option} />
               </AnimatedSection>
             ))}
@@ -60,6 +61,20 @@ export default function FinancementPage() {
             <Button asChild className="mt-5" size="lg">
               <Link href="/contact">Demander un devis</Link>
             </Button>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* FAQ Financement */}
+      <section className="section-padding bg-secondary/40">
+        <div className="container">
+          <SectionTitle
+            eyebrow="Questions fréquentes"
+            title="Vos questions sur le financement"
+            subtitle="Les réponses aux questions les plus courantes sur la prise en charge de votre formation."
+          />
+          <AnimatedSection className="mx-auto mt-12 max-w-3xl">
+            <FaqAccordion items={fundingFaq} idPrefix="faq-financement" />
           </AnimatedSection>
         </div>
       </section>

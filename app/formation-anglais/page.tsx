@@ -8,12 +8,14 @@ import { PageHeader } from "@/components/PageHeader";
 import { SectionTitle } from "@/components/SectionTitle";
 import { FeatureCard } from "@/components/FeatureCard";
 import { TrainingInfoCard } from "@/components/TrainingInfoCard";
+import { ProgramAccordion } from "@/components/ProgramAccordion";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { CTASection } from "@/components/CTASection";
 import {
   trainingInfos,
   skills,
   certificationNote,
+  formationProgram,
   vtest,
 } from "@/data/training";
 
@@ -132,8 +134,22 @@ export default function FormationAnglaisPage() {
         </div>
       </section>
 
-      {/* Certification VTest Business English */}
+      {/* Programme & informations pratiques */}
       <section className="section-padding bg-secondary/40">
+        <div className="container">
+          <SectionTitle
+            eyebrow="Programme"
+            title="Programme & informations pratiques"
+            subtitle="Toutes les informations essentielles sur le déroulé, les modalités et les conditions de la formation."
+          />
+          <AnimatedSection className="mx-auto mt-12 max-w-3xl">
+            <ProgramAccordion items={formationProgram} />
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Certification VTest Business English */}
+      <section className="section-padding">
         <div className="container">
           <AnimatedSection className="overflow-hidden rounded-3xl border border-coral/25 bg-background shadow-sm">
             <div className="grid gap-8 p-8 md:p-10 lg:grid-cols-[1.3fr_1fr] lg:items-center lg:gap-12">

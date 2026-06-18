@@ -8,13 +8,26 @@ export type NavItem = {
   href: string;
 };
 
+/** Navigation affichée dans le header (desktop + mobile). */
 export const mainNav: NavItem[] = [
   { label: "Accueil", href: "/" },
+  { label: "À propos", href: "/a-propos" },
   { label: "Formation d'anglais", href: "/formation-anglais" },
-  { label: "Méthode", href: "/methode-pedagogique" },
+  { label: "Certification VTest", href: "/certification-vtest" },
+  { label: "Financement", href: "/financement" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contact", href: "/contact" },
+];
+
+/** Liens rapides du footer (ensemble complet des pages, pour l'accessibilité). */
+export const footerNav: NavItem[] = [
+  { label: "À propos", href: "/a-propos" },
+  { label: "Formation d'anglais", href: "/formation-anglais" },
+  { label: "Méthode pédagogique", href: "/methode-pedagogique" },
   { label: "Certification VTest", href: "/certification-vtest" },
   { label: "Financement", href: "/financement" },
   { label: "Candidature", href: "/candidature" },
+  { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
 ];
 

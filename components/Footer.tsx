@@ -3,7 +3,7 @@ import { Clock, Mail, MapPin, Phone } from "lucide-react";
 
 import { Logo } from "@/components/Logo";
 import { siteConfig } from "@/data/site";
-import { mainNav, legalNav } from "@/data/navigation";
+import { footerNav, legalNav } from "@/data/navigation";
 
 export function Footer() {
   const year = 2026; // Année à mettre à jour si besoin (date dynamique évitée pour le rendu statique).
@@ -27,7 +27,7 @@ export function Footer() {
               Navigation
             </h2>
             <ul className="mt-5 space-y-3">
-              {mainNav.map((item) => (
+              {footerNav.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
@@ -95,11 +95,42 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-white/15 pt-6 text-center text-sm text-white/60 sm:flex-row sm:text-left">
+        {/* Références organisme & certification */}
+        <div className="mt-14 border-t border-white/15 pt-6">
+          <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-white/60 sm:justify-start">
+            <li>SIRET : {siteConfig.legal.siret}</li>
+            <li>Déclaration d&apos;activité : {siteConfig.legal.nda}</li>
+            <li>
+              Qualiopi :{" "}
+              {siteConfig.legal.qualiopiConfirmed
+                ? siteConfig.legal.qualiopi
+                : "à compléter si applicable"}
+            </li>
+            <li>
+              Certification VTest Business English –{" "}
+              {siteConfig.certifications.vtest.rsCode}
+            </li>
+          </ul>
+        </div>
+
+        <div className="mt-6 flex flex-col items-center justify-between gap-3 border-t border-white/15 pt-6 text-center text-sm text-white/60 sm:flex-row sm:text-left">
           <p>
             © {year} {siteConfig.name}. Tous droits réservés.
           </p>
-          <p>SIRET : {siteConfig.legal.siret}</p>
+          <nav aria-label="Liens légaux">
+            <ul className="flex gap-5">
+              {legalNav.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    className="transition-colors hover:text-coral"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </div>
     </footer>

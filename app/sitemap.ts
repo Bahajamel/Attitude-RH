@@ -1,15 +1,23 @@
 import type { MetadataRoute } from "next";
 
 import { siteConfig } from "@/data/site";
-import { mainNav, legalNav } from "@/data/navigation";
+import { mainNav, footerNav, legalNav } from "@/data/navigation";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = [...mainNav, ...legalNav];
+  // Ensemble dédupliqué de toutes les routes du site.
+  const hrefs = Array.from(
+    new Set([
+      "/",
+      ...mainNav.map((r) => r.href),
+      ...footerNav.map((r) => r.href),
+      ...legalNav.map((r) => r.href),
+    ])
+  );
 
-  return routes.map((route) => ({
-    url: `${siteConfig.url}${route.href === "/" ? "" : route.href}`,
+  return hrefs.map((href) => ({
+    url: `${siteConfig.url}${href === "/" ? "" : href}`,
     lastModified: new Date("2026-06-18"),
     changeFrequency: "monthly",
-    priority: route.href === "/" ? 1 : 0.7,
+    priority: href === "/" ? 1 : 0.7,
   }));
 }

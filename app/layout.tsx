@@ -52,6 +52,27 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+
+        {/* Données structurées (SEO) — organisme de formation */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "EducationalOrganization",
+              name: siteConfig.name,
+              description: siteConfig.description,
+              url: siteConfig.url,
+              email: siteConfig.contact.email,
+              telephone: siteConfig.contact.phoneHref,
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: siteConfig.contact.address,
+                addressCountry: "FR",
+              },
+            }),
+          }}
+        />
       </body>
     </html>
   );
