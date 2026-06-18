@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ===========================================================
+       PALETTE ATTITUDE RH — dérivée du logo (public/logo).
+       Valeurs au format HSL (sans la fonction hsl()).
+
+       Couleurs du logo :
+       - Bleu marine "Attitude"      #16243A  -> --primary / --brand
+       - Corail "RH" + point icône   #F26B43  -> --coral (accent signature)
+       - Bleu roi (courbe icône)     #2456C4  -> --royal (support)
+       - Gris "centre de formation"  #8A93A3  -> --muted-foreground
+
+       Pour repersonnaliser le site, modifiez principalement
+       --primary, --coral et --royal ci-dessous.
+       =========================================================== */
+    --background: 0 0% 100%;
+    --foreground: 218 44% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 218 44% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 218 44% 14%;
+
+    /* Bleu marine principal (texte "Attitude" du logo) */
+    --primary: 218 45% 16%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Gris bleuté très clair */
+    --secondary: 216 33% 97%;
+    --secondary-foreground: 218 40% 20%;
+
+    --muted: 216 30% 96%;
+    --muted-foreground: 217 13% 45%;
+
+    /* Tint corail doux — fond des pastilles d'icônes */
+    --accent: 16 100% 95%;
+    --accent-foreground: 13 75% 42%;
+
+    --destructive: 0 72% 48%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 216 22% 90%;
+    --input: 216 22% 90%;
+    --ring: 14 87% 61%;
+
+    /* === Couleurs de marque === */
+    --brand: 218 45% 16%; /* bleu marine */
+    --brand-light: 14 87% 61%; /* corail (accent signature) */
+    --brand-dark: 219 52% 10%;
+
+    /* Corail signature (CTA, surbrillances) */
+    --coral: 14 87% 61%;
+    --coral-foreground: 0 0% 100%;
+    --coral-soft: 16 100% 95%;
+
+    /* Bleu roi (icône du logo, liens / éléments secondaires) */
+    --royal: 221 64% 46%;
+    --royal-foreground: 0 0% 100%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  /* Respecte les préférences de réduction de mouvement */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* Conteneur de section vertical homogène */
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  /* Met le mot en surbrillance avec le corail de la marque */
+  .text-coral {
+    color: hsl(var(--coral));
+  }
+
+  /* Dégradé de marque (marine -> marine profond) pour les blocs sombres */
+  .bg-brand-gradient {
+    background-image: linear-gradient(
+      135deg,
+      hsl(var(--brand)) 0%,
+      hsl(var(--brand-dark)) 100%
+    );
+  }
+
+  /* Motif de points discret pour les fonds décoratifs */
+  .bg-dot-pattern {
+    background-image: radial-gradient(
+      hsl(var(--border)) 1px,
+      transparent 1px
+    );
+    background-size: 22px 22px;
+  }
+}
